@@ -1,0 +1,139 @@
+// base grid module
+
+$grid-module: 15px;
+
+// grid-sizes
+
+$grid-column-count: 22;
+$gutter: $grid-module*2;
+
+// z-index
+
+$z-index: (
+  'modal',
+  'navigation',
+  'pseudo',
+  'pseudo-back'
+);
+
+@function z($name) {
+  @if index($z-index, $name) {
+    @return (length($z-index) - index($z-index, $name)) + 1;
+  } @else {
+    @return null;
+  }
+}
+
+// transition
+
+$transition: .3s ease;
+
+// colors
+
+$palette: (
+  bg: #fff,
+  bg-dark: #FFF3D7,
+  bg-dark-accent: #F9F4FF,
+
+  content: #4B5D68,
+  content-light: #8F8F8F,
+  heading: #212353,
+
+  placeholder: #A9A0B6,
+
+  accent-main: #9C69E2,
+  accent-main-hover: #B17FF4,
+  accent-main-dark: #F05B1B,
+
+  accent-second: #FFC84D,
+  accent-second-hover: #FFBE2D,
+  accent-second-dark: #EEAA12,
+
+  additional-color-1: #F063B8,
+  additional-color-2: #43b2e2,
+  additional-color-3: #2ab9b8,
+  additional-color-4: #98c748,
+  additional-color-5: #ff8400,
+
+  footer: #232473,
+  footer-dark: #1a1b56,
+
+  header: #FFFEFD,
+
+  border: #E1E1E1,
+  border-light: #D6B9FF,
+);
+
+// buttons colors
+
+$button-colors: (
+  orange: map-get($palette, accent-main),
+  yellow : map-get($palette, accent-second),
+);
+
+// breakpoints
+
+$grid-breakpoints: (
+  lg: 1279px,
+  md: 991px,
+  sm: 767px,
+  xs: 576px
+) !default;
+
+@mixin mq($width, $type: max) {
+  @if map_has_key($grid-breakpoints, $width) {
+    $width: map_get($grid-breakpoints, $width);
+    @if $type == max {
+      $width: $width;
+    }
+    @media (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+// wrapper max widths start
+
+$wrapper-max-widths: (
+  xl: 1380px,
+  lg: 100%,
+  md: 100%,
+  sm: 100%,
+  xs: 100%,
+
+) !default;
+
+// font-sizes
+
+$font-size: (
+  md: 16px,
+  sm: 15px,
+  xs: 14px
+);
+
+// fonts
+
+$font: (
+  // families
+  body: ('Roboto', 'Arial', sans-serif),
+);
+
+
+// controls styles
+
+$control: (
+  width-sm: 64px,
+
+  height: 40px,
+  height-lg: 48px,
+  textarea-height: 96px,
+
+  bg: #fff,
+  bg-disabled: #EAEFFC,
+
+  border-radius: 2px,
+
+  control-line-height: 24px
+);
+
+$path-to-bg-image: 'images/';

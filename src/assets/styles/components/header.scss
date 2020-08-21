@@ -1,0 +1,9 @@
+.header {
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 120px;
+
+  @include mq(md) {
+    padding-bottom: 70px;
+  }
+}

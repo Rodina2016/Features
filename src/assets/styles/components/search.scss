@@ -1,0 +1,33 @@
+.search {
+  @include mq(sm) {
+    margin-top: 34px;
+  }
+
+  &__input {
+    min-width: 420px;
+    margin-right: 33px;
+
+    @include mq(lg) {
+      min-width: 247px;
+    }
+
+    @include mq(sm) {
+      margin-right: 0;
+    }
+  }
+  &__btn {
+    padding: 11px 28px;
+    font-size: 16px;
+    @include mq(sm) {
+      align-self: center;
+      margin-top: 22px;
+    }
+  }
+
+  &__form {
+    @include mq(sm) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

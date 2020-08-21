@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Bold'), local('Roboto-Bold'), url('assets/fonts/roboto/Robotobold.woff2') format('woff2'), url('assets/fonts/roboto/Robotobold.woff') format('woff'), url('assets/fonts/roboto/Robotobold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto Medium'), local('Roboto-Medium'), url('assets/fonts/roboto/Robotomedium.woff2') format('woff2'), url('assets/fonts/roboto/Robotomedium.woff') format('woff'), url('assets/fonts/roboto/Robotomedium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('Roboto'), local('Roboto-Regular'), url('assets/fonts/roboto/Roboto.woff2') format('woff2'), url('assets/fonts/roboto/Roboto.woff') format('woff'), url('assets/fonts/roboto/Roboto.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@import '../../../node_modules/normalize.scss/normalize';
+
+body {
+  font-family: map_get($font, body);
+  font-size: 16px;
+  color: map_get($palette, content);
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 130%;
+
+  @include mq(sm) {
+    font-size: 35px;
+  }
+}
+
+input {
+  padding: 10px 15px;
+  height: 48px;
+  border-radius: 4px;
+  background-color: map_get($palette, bg);
+  border: 1px solid map_get($palette, border);
+  box-sizing: border-box;
+  &::placeholder {
+    font-size: 16px;
+    line-height: 28px;
+    color: map_get($palette, placeholder);
+  }
+}
+

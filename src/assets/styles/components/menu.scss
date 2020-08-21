@@ -1,0 +1,198 @@
+.menu {
+  @include mq(md) {
+    padding: 0;
+    position: absolute;
+    top: 60px;
+    background-color: map_get($palette, bg);
+    box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    &.active {
+      border-top: 1px solid map_get($palette, border-light);
+    }
+  }
+
+  &__item {
+    position: relative;
+    margin-right: 40px;
+
+    @include mq(md) {
+      margin-right: 0;
+      padding: 15px 0;
+      border-bottom: 1px solid map_get($palette, border-light);
+    }
+
+    &-svg {
+      width: 10px;
+      height: 6px;
+      fill: map_get($palette, content);
+      transition: $transition;
+
+      @include mq(md) {
+        position: absolute;
+        width: 11px;
+        height: 18px;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    &-link {
+      padding: 0 5px;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 160%;
+      color: map_get($palette, heading);
+      transition: $transition;
+
+      &:hover {
+        color: map_get($palette, accent-main);
+      }
+
+      @include mq(md) {
+        position: relative;
+        display: block;
+        padding-left: 30px;
+        font-weight: 500;
+        font-size: 27px;
+      }
+
+    }
+
+    &:hover {
+      .menu__item-sub {
+        display: block;
+      }
+      .menu__item-svg {
+        transform: rotate(180deg);
+        fill: map_get($palette, accent-main);
+
+        @include mq(md) {
+          transform: rotate(90deg);
+          top: 37%;
+        }
+      }
+      .menu__item-link {
+        color: map_get($palette, accent-main);
+      }
+    }
+
+    &-wrap {
+      position: relative;
+      padding: 12px 17px 12px 24px;
+      background-color: map_get($palette, bg);
+      border: 1px solid map_get($palette, accent-main);
+      border-radius: 10px;
+      z-index: 1;
+
+      @include mq(md) {
+        border: none;
+        padding: 15px 0 0 0;
+      }
+    }
+
+    &-sub {
+      position: absolute;
+      padding-top: 30px;
+      top: 20px;
+      left: -20px;
+      display: none;
+      min-width: 170px;
+      border-radius: 10px;
+
+      @include mq(md) {
+        padding-top: 0;
+        position: static;
+        margin-top: 15px;
+        width: 100%;
+        border-radius: 0;
+        border-top: 1px solid map_get($palette, border-light);
+        background-color: map_get($palette, bg-dark-accent);
+      }
+
+      &:before {
+        position: absolute;
+        left: 62px;
+        top: 21px;
+        content: '';
+        display: block;
+        width: 18px;
+        height: 18px;
+        border-top: 1px solid map_get($palette, accent-main);
+        border-right: 1px solid map_get($palette, accent-main);
+        background-color: map_get($palette, bg);
+        transform: rotate(-45deg);
+        z-index: 2;
+
+        @include mq(md) {
+          display: none;
+        }
+      }
+
+      &:after {
+        position: absolute;
+        bottom: -4px;
+        right: 0;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 20px;
+        border-radius: 10px;
+        background-color: map_get($palette, accent-main);
+        z-index: -1;
+        opacity: 0.4;
+        @include mq(md) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__sub {
+    &-link {
+      font-size: 16px;
+      line-height: 220%;
+      color: map_get($palette, content);
+
+      &:hover {
+        color: map_get($palette, accent-main);
+      }
+
+      @include mq(md) {
+        padding-left: 60px;
+        font-size: 25px;
+      }
+    }
+  }
+
+  &__wrap {
+    @include mq(md) {
+      flex-direction: column;
+    }
+  }
+
+  &__btn {
+    @include mq(md) {
+      padding: 44px 0;
+    }
+  }
+
+  &__burger {
+    position: absolute;
+    right: 30px;
+    top: -55px;
+    &-svg {
+      width: 36px;
+      height: 24px;
+    }
+
+    &.active {
+      top: -56px;
+
+      .menu__burger-svg {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+}

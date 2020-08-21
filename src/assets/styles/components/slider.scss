@@ -1,0 +1,133 @@
+.slider {
+  margin: 56px auto 92px;
+  background-color: map_get($palette, accent-second);
+  border-radius: 50px;
+
+  @include mq(xs) {
+    border-radius: 0;
+    width: 100vw;
+    margin-left: -30px;
+    margin-bottom: 73px;
+  }
+
+  .slider-block {
+    .slick-slide {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  &-block {
+    padding: 77px 30px 40px;
+
+    @include mq(xs) {
+      padding: 25px 30px 30px;
+    }
+
+    .slick-dots {
+      padding-top: 50px;
+      position: static;
+      text-align: left;
+
+      @include mq(xs) {
+        padding-top: 30px;
+        text-align: center;
+      }
+    }
+
+    li.slick-active {
+      button {
+        &:before {
+          font-size: 10px;
+          color: map_get($palette, additional-color-1);
+        }
+      }
+    }
+
+    li {
+      margin: 0 3px;
+      button {
+        &:before {
+          font-size: 6px;
+          color: map_get($palette, bg);
+          opacity: 1;
+        }
+      }
+    }
+
+    &__item {
+      position: relative;
+      max-width: 390px;
+      margin: 0 auto;
+      padding: 41px 61px 41px 113px;
+      background-color: map_get($palette, bg-dark);
+      border-radius: 50px;
+      box-sizing: border-box;
+      z-index: 1;
+
+      @include mq(xs) {
+        padding: 41px 31px;
+      }
+
+      &:after {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        display: block;
+        content: '';
+        width: 100%;
+        height: 100%;
+        border-radius: 50px;
+        background-color: map_get($palette, bg-dark);
+        opacity: .5;
+        z-index: -1;
+      }
+
+      &-heading {
+        margin-bottom: 20px;
+        font-size: 25px;
+        line-height: 130%;
+        color: map_get($palette, heading);
+      }
+
+      &-text {
+        margin-bottom: 20px;
+        line-height: 160%;
+      }
+
+      &-link {
+        font-weight: bold;
+        letter-spacing: 0.005em;
+        line-height: 160%;
+        color: map_get($palette, content);
+        transition: color $transition;
+
+        &:hover {
+          color: map_get($palette, accent-main);
+        }
+      }
+
+      &-icon {
+        margin-left: 24px;
+        width: 22px;
+        height: 16px;
+        vertical-align: middle;
+      }
+
+      &-number {
+        position: absolute;
+        top: -42px;
+        left: -64px;
+        font-weight: bold;
+        font-size: 202px;
+        line-height: 160%;
+        color: map_get($palette, accent-main);
+
+        @include mq(xs) {
+          display: none;
+        }
+      }
+    }
+  }
+}
